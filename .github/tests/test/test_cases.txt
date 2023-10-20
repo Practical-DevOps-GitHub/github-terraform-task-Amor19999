@@ -1,0 +1,6 @@
+.planned_values.root_module.resources[] | select(.type=="github_branch_default").values.branch;"develop";default branch
+.planned_values.root_module.resources[] | select(.type=="github_repository_collaborator").values.username;"softservedata";collaborator
+.planned_values.root_module.resources[] | select(.type=="github_branch_protection").values | select(.pattern == "develop").required_pull_request_reviews[].required_approving_review_count;2;develop protection
+.planned_values.root_module.resources[] | select(.type=="github_branch_protection").values | select(.pattern == "main").required_pull_request_reviews[].require_code_owner_reviews;true;main protection
+.planned_values.root_module.resources[] | select(.type=="github_actions_secret").values.secret_name;"PAT";actions secret
+.planned_values.root_module.resources[] | select(.type=="github_repository_deploy_key").values.title;"DEPLOY_KEY";deploy key
